@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.PostConstruct;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 @Repository
 public class RedisRepositoryImpl implements RedisRepository {
@@ -36,8 +37,12 @@ public class RedisRepositoryImpl implements RedisRepository {
     }
 
     public Movie findMovie(final String id) {
-        Object movie = hashOperations.get(KEY, id);
-        return new Movie(id, Objects.requireNonNull(movie).toString());
+        String movieName = hashOperations.get(KEY, id);
+        if (Objects.isNull(movieName)) {
+            return new Movie("", "");
+        } else {
+            return new Movie(id, movieName);
+        }
 
     }
 

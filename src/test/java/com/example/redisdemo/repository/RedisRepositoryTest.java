@@ -14,7 +14,7 @@ import redis.embedded.RedisServerBuilder;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = RedisConfig.class)
@@ -42,8 +42,15 @@ public class RedisRepositoryTest {
         Movie movie = new Movie("1", "Alien");
         redisRepository.add(movie);
         Movie getMovie = redisRepository.findMovie("1");
-        assertEquals(movie.toString(), getMovie.toString());
+        assertEquals(movie, getMovie);
     }
 
+    @Test
+    public void whenDeleteItem_thenItemNotAvailable() {
+        Movie movie = new Movie("1", "Alien");
+        redisRepository.add(movie);
+        redisRepository.delete("1");
+        assertEquals(new Movie("", ""), redisRepository.findMovie("1"));
+    }
 
 }
