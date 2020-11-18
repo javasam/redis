@@ -4,7 +4,6 @@ import com.example.redisdemo.queue.MessagePublisher;
 import com.example.redisdemo.queue.MessagePublisherImpl;
 import com.example.redisdemo.queue.MessageSubscriber;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -70,5 +69,4 @@ public class RedisConfig {
     ChannelTopic topic() {
         return new ChannelTopic("pubsub:queue");
     }
-
 }

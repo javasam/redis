@@ -2,7 +2,6 @@ package com.example.redisdemo.repository;
 
 import com.example.redisdemo.config.RedisConfig;
 import com.example.redisdemo.model.Movie;
-import com.example.redisdemo.repository.RedisRepository;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,9 +12,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import redis.embedded.RedisServerBuilder;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = RedisConfig.class)
