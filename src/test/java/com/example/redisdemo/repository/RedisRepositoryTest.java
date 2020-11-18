@@ -1,4 +1,4 @@
-package com.example.redisdemo.controller;
+package com.example.redisdemo.repository;
 
 import com.example.redisdemo.config.RedisConfig;
 import com.example.redisdemo.model.Movie;
